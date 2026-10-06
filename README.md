@@ -1,5 +1,8 @@
 # Pancreatic-Islet-scRNAseq
 
+**Author:** Rulin Hua  
+**Primary language:** R, with Bash/Python for pySCENIC
+
 Reproducible computational workflows for human pancreatic islet single-cell
 RNA-seq analysis, with an emphasis on disease/HbA1c stratification and
 donor-level beta-cell analyses.
