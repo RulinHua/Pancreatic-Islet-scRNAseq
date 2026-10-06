@@ -47,8 +47,6 @@ for (d in c(
   dir.create(file.path(result_dir, d), recursive = TRUE, showWarnings = FALSE)
 }
 
-source(file.path(project_root, "R", "helpers.R"))
-
 # Core packages used across the workflow
 library(Seurat)
 library(data.table)
@@ -66,6 +64,13 @@ library(igraph)
 library(ggraph)
 library(SingleCellExperiment)
 library(monocle)
+
+if (!requireNamespace("scCancer", quietly = TRUE)) {
+  stop(
+    "Package 'scCancer' is required for the original cell-type color palette. ",
+    "Install it with remotes::install_github('wguo-research/scCancer')."
+  )
+}
 
 # Additional packages are called with package::function where practical.
 # Some modules require optional packages such as CytoTRACE2, GSVA, limma,
