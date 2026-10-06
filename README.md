@@ -59,13 +59,23 @@ donor-level beta-cell analyses.
 
 ## Input data
 
-The large Seurat object is intentionally not included in the repository.
-The workflow expects a PanKbase-derived Seurat object containing the metadata
-fields used in the scripts, including cell type, donor accession, diabetes
-status, source, chemistry, HbA1c, age, and sex.
+The single-cell RNA-seq data used in this analysis were obtained from
+[PanKbase](https://data.pankbase.org/).
+
+The analysis is based on the PanKbase resource analysis set
+[PKBDS1349YHGQ](https://data.pankbase.org/analysis-sets/PKBDS1349YHGQ/),
+which contains a reference map of human pancreatic islet cell-type-specific
+gene expression derived from HPAP, IIDP, and Prodo samples.
+
+The corresponding PanKbase matrix file is
+[PKBFI5903OGWY](https://data.pankbase.org/matrix-files/PKBFI5903OGWY/).
+
+For the analyses in this repository, the data were loaded from a local Seurat
+RDS object (`060425_scRNA_v3.3.rds`). The large data object is not redistributed
+in this repository.
 
 Copy `config/paths.example.R` to `config/local_paths.R` and edit the local
-input/output paths. The local file is excluded by `.gitignore`.
+input/output paths. The local configuration file is excluded by `.gitignore`.
 
 ## Running the workflow
 
