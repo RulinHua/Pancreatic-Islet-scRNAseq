@@ -1,0 +1,33 @@
+# Local path configuration
+config/local_paths.R
+.Renviron
+
+# Data and generated results
+data/*
+!data/README.md
+results/*
+!results/README.md
+
+# Large single-cell / intermediate files
+*.rds
+*.RData
+*.Rdata
+*.rda
+*.h5
+*.h5ad
+*.loom
+*.mtx
+*.mtx.gz
+*.feather
+
+# R session / IDE
+.Rhistory
+.Rproj.user/
+
+# Logs / temp
+*.log
+*.tmp
+
+# OS
+.DS_Store
+Thumbs.db
