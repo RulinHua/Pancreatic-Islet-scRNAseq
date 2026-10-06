@@ -120,9 +120,12 @@ transcription-factor list, motif annotations, and hg38 cisTarget databases.
 
 ## Data and outputs
 
-Raw/processed single-cell objects and generated result files are excluded
-from git. This keeps the repository focused on analysis code and avoids
-redistributing large third-party datasets.
+Raw and processed single-cell data objects, including the local Seurat RDS file,
+are not included in this repository. The source data are publicly available from
+PanKbase, and the relevant dataset accession is provided above.
+
+Generated figures, tables, and intermediate analysis files are also excluded
+from git to keep the repository focused on reproducible analysis code.
 
 ## License / reuse
 
