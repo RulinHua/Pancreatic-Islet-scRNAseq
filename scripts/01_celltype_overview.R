@@ -6,7 +6,7 @@
 
 ##### umap图谱
 ## diabetes_status分组细胞类型
-colors <- project_palette(uniqueN(sr$Cell_Type))
+colors <- scCancer::getDefaultColors(n = uniqueN(sr$Cell_Type),type = 2)
 names(colors) <- sort(unique(sr$Cell_Type))
 p1 <- DimPlot(sr, reduction = "umap", group.by = "Cell_Type",cols=colors,label=F,pt.size = 0.1,raster=FALSE)+ggtitle("total")+theme(plot.title = element_text(hjust = 0.5),aspect.ratio=1,text = element_text(size = 16))
 p2 <- DimPlot(sr[,sr$description_of_diabetes_status=="non-diabetic"], reduction = "umap", group.by = "Cell_Type",cols=colors,label=F,pt.size = 0.1,raster=FALSE)+ggtitle("Control")+theme(plot.title = element_text(hjust = 0.5),aspect.ratio=1,text = element_text(size = 16))
@@ -17,7 +17,7 @@ fn <- file.path(result_dir, "celltype_diabetes_status_umapplot.pdf")
 cowplot::save_plot(fn,p,ncol = 4,nrow =1,base_height = 5,base_width = 6)
 
 ## hba1c分组细胞类型
-colors <- project_palette(uniqueN(sr$Cell_Type))
+colors <- scCancer::getDefaultColors(n = uniqueN(sr$Cell_Type),type = 2)
 names(colors) <- sort(unique(sr$Cell_Type))
 p1 <- DimPlot(sr[,!is.na(sr$hba1c_group)], reduction = "umap", group.by = "Cell_Type",cols=colors,label=F,pt.size = 0.1,raster=FALSE)+ggtitle("total")+theme(plot.title = element_text(hjust = 0.5),aspect.ratio=1,text = element_text(size = 16))
 p2 <- DimPlot(sr[,!is.na(sr$hba1c_group) & sr$hba1c_group=="Normal"], reduction = "umap", group.by = "Cell_Type",cols=colors,label=F,pt.size = 0.1,raster=FALSE)+ggtitle("Normal")+theme(plot.title = element_text(hjust = 0.5),aspect.ratio=1,text = element_text(size = 16))
@@ -40,7 +40,7 @@ dt$pct[dt$group=="T1D"] <- dt$count[dt$group=="T1D"]/sum(dt$count[dt$group=="T1D
 dt$pct[dt$group=="T2D"] <- dt$count[dt$group=="T2D"]/sum(dt$count[dt$group=="T2D"])
 
 dt$group <- factor(dt$group,levels = c("Control","T1D","T2D"))
-colors <- project_palette(uniqueN(sr$Cell_Type))
+colors <- scCancer::getDefaultColors(n = uniqueN(sr$Cell_Type),type = 2)
 names(colors) <- sort(unique(sr$Cell_Type))
 p <- ggplot(dt,aes(x=group,y=pct, fill=celltype))+
   geom_bar(stat="identity")+
@@ -58,7 +58,7 @@ dt$pct[dt$group=="Prediabetes"] <- dt$count[dt$group=="Prediabetes"]/sum(dt$coun
 dt$pct[dt$group=="Diabetes"] <- dt$count[dt$group=="Diabetes"]/sum(dt$count[dt$group=="Diabetes"])
 
 dt$group <- factor(dt$group,levels = c("Normal","Prediabetes","Diabetes"))
-colors <- project_palette(uniqueN(sr$Cell_Type))
+colors <- scCancer::getDefaultColors(n = uniqueN(sr$Cell_Type),type = 2)
 names(colors) <- sort(unique(sr$Cell_Type))
 p <- ggplot(dt,aes(x=group,y=pct, fill=celltype))+
   geom_bar(stat="identity")+
